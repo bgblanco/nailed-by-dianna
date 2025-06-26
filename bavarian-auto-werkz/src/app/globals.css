@@ -1,0 +1,414 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import premium fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* BMW-themed custom styles */
+@layer base {
+  :root {
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  html {
+    @apply scroll-smooth antialiased;
+    font-size: 16px;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-white text-bmw-gray-900 font-sans;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    line-height: 1.6;
+  }
+
+  ::selection {
+    @apply bg-bmw-blue-500 text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight leading-tight;
+  }
+
+  /* Premium focus styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-bmw-blue-500 ring-offset-2 rounded-lg;
+  }
+}
+
+@layer components {
+  /* Ultra-premium gradient backgrounds */
+  .hero-gradient {
+    background: 
+      radial-gradient(at 20% 80%, rgba(0, 102, 204, 0.15) 0%, transparent 50%),
+      radial-gradient(at 80% 20%, rgba(220, 38, 38, 0.08) 0%, transparent 50%),
+      radial-gradient(at 40% 40%, rgba(28, 105, 212, 0.05) 0%, transparent 50%);
+    position: relative;
+  }
+
+  .hero-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0, 102, 204, 0.03) 35px, rgba(0, 102, 204, 0.03) 70px);
+    pointer-events: none;
+  }
+
+  /* Premium glass morphism effect */
+  .glass-premium {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  /* BMW M-stripe accent - refined */
+  .bmw-m-stripe {
+    background: linear-gradient(
+      90deg,
+      #0066CC 0%,
+      #0066CC 33.33%,
+      #DC2626 33.33%,
+      #DC2626 66.66%,
+      #4A90E2 66.66%,
+      #4A90E2 100%
+    );
+    height: 3px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bmw-m-stripe::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* Premium button styles */
+  .btn-premium {
+    @apply relative overflow-hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-premium::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent;
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+  }
+
+  .btn-premium:hover::before {
+    transform: translateX(100%);
+  }
+
+  /* Engine pulse animation - refined */
+  .engine-pulse {
+    animation: enginePulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes enginePulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 
+        0 0 0 0 rgba(0, 102, 204, 0.4),
+        0 4px 16px rgba(0, 102, 204, 0.2);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 
+        0 0 0 20px rgba(0, 102, 204, 0),
+        0 8px 32px rgba(0, 102, 204, 0.3);
+    }
+  }
+
+  /* Premium card effects */
+  .card-premium {
+    @apply bg-white rounded-2xl border border-bmw-gray-200 transition-all duration-300;
+    box-shadow: 
+      0 1px 2px rgba(0, 0, 0, 0.04),
+      0 4px 8px rgba(0, 0, 0, 0.04),
+      0 16px 32px rgba(0, 0, 0, 0.04);
+  }
+
+  .card-premium:hover {
+    @apply border-bmw-blue-200;
+    transform: translateY(-4px);
+    box-shadow: 
+      0 4px 8px rgba(0, 0, 0, 0.04),
+      0 12px 24px rgba(0, 0, 0, 0.08),
+      0 24px 48px rgba(0, 102, 204, 0.08);
+  }
+
+  /* Premium text effects */
+  .text-gradient-bmw {
+    @apply bg-gradient-to-br from-bmw-blue-500 via-bmw-blue-600 to-bmw-blue-700 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-performance {
+    @apply bg-gradient-to-r from-performance-red via-performance-orange to-performance-red bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+    100% { background-position: 0% center; }
+  }
+
+  /* Premium loading states */
+  .loading-premium {
+    @apply relative overflow-hidden bg-bmw-gray-100;
+  }
+
+  .loading-premium::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent;
+    animation: loading-sweep 1.5s infinite;
+  }
+
+  @keyframes loading-sweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* Premium badge styles */
+  .badge-glow {
+    box-shadow: 
+      0 0 0 1px rgba(0, 102, 204, 0.1),
+      0 2px 4px rgba(0, 102, 204, 0.1),
+      0 4px 8px rgba(0, 102, 204, 0.1);
+  }
+
+  /* Smooth hover transitions */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1;
+  }
+
+  /* Premium image overlays */
+  .img-overlay-premium {
+    @apply relative overflow-hidden rounded-2xl;
+  }
+
+  .img-overlay-premium::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-t from-bmw-gray-900/60 via-transparent to-transparent opacity-0 transition-opacity duration-300;
+  }
+
+  .img-overlay-premium:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Premium divider */
+  .divider-premium {
+    @apply relative;
+  }
+
+  .divider-premium::after {
+    content: '';
+    @apply absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-bmw-gray-300 to-transparent;
+    transform: translateY(-50%);
+  }
+
+  /* Premium stats cards */
+  .stat-card {
+    @apply relative p-6 rounded-2xl bg-gradient-to-br from-white to-bmw-gray-50 border border-bmw-gray-200;
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.04),
+      0 8px 16px rgba(0, 0, 0, 0.04);
+  }
+
+  .stat-card::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl;
+    background: linear-gradient(135deg, transparent 0%, rgba(0, 102, 204, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .stat-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Premium section backgrounds */
+  .section-pattern {
+    @apply relative;
+  }
+
+  .section-pattern::before {
+    content: '';
+    @apply absolute inset-0 opacity-[0.02];
+    background-image: 
+      radial-gradient(circle at 1px 1px, #0066CC 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  /* Premium form inputs */
+  .input-premium {
+    @apply bg-white border-2 border-bmw-gray-200 rounded-xl px-4 py-3 transition-all duration-200;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  }
+
+  .input-premium:hover {
+    @apply border-bmw-gray-300;
+  }
+
+  .input-premium:focus {
+    @apply border-bmw-blue-500 ring-4 ring-bmw-blue-500/10;
+    box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
+  }
+
+  /* Premium code display */
+  .code-display {
+    @apply font-mono text-lg font-bold bg-gradient-to-r from-bmw-gray-900 to-bmw-gray-800 text-white px-4 py-2 rounded-lg;
+    letter-spacing: 0.05em;
+  }
+
+  /* Service card premium styles */
+  .service-card-premium {
+    @apply relative overflow-hidden rounded-2xl border border-bmw-gray-200 bg-white transition-all duration-300;
+  }
+
+  .service-card-premium::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-bmw-blue-500 via-performance-red to-bmw-blue-700;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .service-card-premium:hover::before {
+    transform: scaleX(1);
+  }
+
+  /* Premium testimonial cards */
+  .testimonial-premium {
+    @apply relative p-8 rounded-2xl bg-gradient-to-br from-white to-bmw-gray-50 border border-bmw-gray-200;
+  }
+
+  .testimonial-premium::before {
+    content: '"';
+    @apply absolute top-4 left-6 text-6xl font-bold text-bmw-blue-500/10;
+    font-family: Georgia, serif;
+  }
+
+  /* BMW spinner - refined */
+  .bmw-spinner {
+    @apply relative w-12 h-12;
+  }
+
+  .bmw-spinner::before {
+    content: '';
+    @apply absolute inset-0 rounded-full border-4 border-bmw-gray-200;
+  }
+
+  .bmw-spinner::after {
+    content: '';
+    @apply absolute inset-0 rounded-full border-4 border-transparent border-t-bmw-blue-500;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar - ultra premium */
+  .scrollbar-premium {
+    scrollbar-width: thin;
+    scrollbar-color: #0066CC20 #f8fafc;
+  }
+
+  .scrollbar-premium::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  .scrollbar-premium::-webkit-scrollbar-track {
+    @apply bg-bmw-gray-50 rounded-full;
+  }
+
+  .scrollbar-premium::-webkit-scrollbar-thumb {
+    @apply bg-bmw-blue-500/30 rounded-full;
+    transition: all 0.3s;
+  }
+
+  .scrollbar-premium::-webkit-scrollbar-thumb:hover {
+    @apply bg-bmw-blue-500/50;
+  }
+
+  /* Premium text shadows */
+  .text-shadow-premium {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-performance {
+    text-shadow: 
+      0 2px 4px rgba(220, 38, 38, 0.2),
+      0 4px 8px rgba(220, 38, 38, 0.1);
+  }
+
+  .text-shadow-bmw {
+    text-shadow: 
+      0 2px 4px rgba(0, 102, 204, 0.2),
+      0 4px 8px rgba(0, 102, 204, 0.1);
+  }
+
+  /* Premium backdrop effects */
+  .backdrop-premium {
+    @apply backdrop-blur-2xl backdrop-saturate-150;
+  }
+
+  /* Noise texture overlay */
+  .noise-overlay {
+    position: relative;
+  }
+
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.03;
+  }
+
+  /* Premium animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Premium grid pattern */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(rgba(0, 102, 204, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 102, 204, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}
