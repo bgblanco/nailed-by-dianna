@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bavarian Auto Werkz | BMW Specialist & Exotic Car Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bmw: {
+                            blue: {
+                                50: '#f0f8ff',
+                                100: '#e0f2fe',
+                                200: '#bae6fd',
+                                300: '#7dd3fc',
+                                400: '#38bdf8',
+                                500: '#0066CC',
+                                600: '#1C69D4',
+                                700: '#0369a1',
+                                800: '#075985',
+                                900: '#0c4a6e',
+                            },
+                            gray: {
+                                50: '#f9fafb',
+                                100: '#f3f4f6',
+                                200: '#e5e7eb',
+                                300: '#d1d5db',
+                                400: '#9ca3af',
+                                500: '#6b7280',
+                                600: '#4b5563',
+                                700: '#374151',
+                                800: '#1f2937',
+                                900: '#111827',
+                            }
+                        },
+                        performance: {
+                            red: '#DC2626',
+                            orange: '#F59E0B',
+                            green: '#16A34A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        heading: ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-bmw': 'linear-gradient(135deg, #0066CC 0%, #1C69D4 100%)',
+                        'gradient-performance': 'linear-gradient(135deg, #DC2626 0%, #F59E0B 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* BMW M-Stripe */
+        .bmw-m-stripe {
+            background: linear-gradient(90deg, #0066CC 0%, #0066CC 33.33%, #DC2626 33.33%, #DC2626 66.66%, #4A90E2 66.66%, #4A90E2 100%);
+            height: 3px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bmw-m-stripe::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .hero-gradient {
+            background: 
+                radial-gradient(at 20% 80%, rgba(0, 102, 204, 0.15) 0%, transparent 50%),
+                radial-gradient(at 80% 20%, rgba(220, 38, 38, 0.08) 0%, transparent 50%),
+                radial-gradient(at 40% 40%, rgba(28, 105, 212, 0.05) 0%, transparent 50%);
+        }
+        
+        .card-premium {
+            background: white;
+            border-radius: 1rem;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.04);
+        }
+        
+        .card-premium:hover {
+            border-color: #bae6fd;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04), 0 12px 24px rgba(0, 0, 0, 0.08), 0 24px 48px rgba(0, 102, 204, 0.08);
+        }
+        
+        .text-gradient-bmw {
+            background: linear-gradient(135deg, #0066CC 0%, #1C69D4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .text-gradient-performance {
+            background: linear-gradient(135deg, #DC2626 0%, #F59E0B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-premium {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .btn-premium:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <!-- BMW M-Stripe -->
+    <div class="bmw-m-stripe"></div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-bmw-gray-200 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="relative">
+                        <div class="w-10 h-10 rounded-full bg-gradient-bmw flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5l-1-1z"></path>
+                            </svg>
+                        </div>
+                        <div class="absolute inset-0 rounded-full border-2 border-bmw-blue-500 animate-pulse opacity-50"></div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-bold text-bmw-gray-900">Bavarian Auto Werkz</span>
+                        <span class="text-xs text-bmw-gray-600 -mt-1">BMW • Performance • Exotic</span>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="px-3 py-2 rounded-lg text-sm font-medium text-bmw-blue-600 bg-bmw-blue-50">Home</a>
+                    <a href="#" class="px-3 py-2 rounded-lg text-sm font-medium text-bmw-gray-700 hover:text-bmw-blue-600 hover:bg-bmw-gray-50">Services</a>
+                    <a href="#" class="px-3 py-2 rounded-lg text-sm font-medium text-bmw-gray-700 hover:text-bmw-blue-600 hover:bg-bmw-gray-50">Gallery</a>
+                    <a href="#" class="px-3 py-2 rounded-lg text-sm font-medium text-bmw-gray-700 hover:text-bmw-blue-600 hover:bg-bmw-gray-50">About</a>
+                    <a href="#" class="px-3 py-2 rounded-lg text-sm font-medium text-bmw-gray-700 hover:text-bmw-blue-600 hover:bg-bmw-gray-50">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="bg-bmw-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-bmw-blue-700 btn-premium flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        Book Service
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <!-- Premium Background -->
+        <div class="absolute inset-0 hero-gradient"></div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-bmw-blue-500/10 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-performance-red/5 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center space-y-8">
+                <!-- Premium Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur-xl border border-bmw-blue-200 shadow-lg">
+                    <div class="w-2 h-2 bg-bmw-blue-500 rounded-full animate-pulse"></div>
+                    <span class="text-sm font-medium text-bmw-gray-700">Enthusiast Owned & Operated Since 2009</span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="text-5xl md:text-7xl font-heading font-bold">
+                    <span class="block text-bmw-gray-900">The Ultimate</span>
+                    <span class="block mt-2">
+                        <span class="text-gradient-bmw">BMW</span> & <span class="text-gradient-performance">Exotic</span>
+                    </span>
+                    <span class="block text-bmw-gray-900 mt-2">Performance Center</span>
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-xl md:text-2xl text-bmw-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Where passion meets precision. From routine maintenance to 1000HP builds, 
+                    we bring track-proven expertise to every service.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+                    <button class="bg-bmw-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-bmw-blue-700 btn-premium min-w-[200px] flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        Check BMW Codes
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                    <button class="border-2 border-bmw-gray-900 text-bmw-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-bmw-gray-900 hover:text-white min-w-[200px] flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        Schedule Service
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+                    <div class="card-premium p-6 text-center">
+                        <div class="text-3xl font-bold text-bmw-blue-600">500+</div>
+                        <div class="text-sm text-bmw-gray-600 mt-1">BMWs Serviced</div>
+                    </div>
+                    <div class="card-premium p-6 text-center">
+                        <div class="text-3xl font-bold text-bmw-blue-600">15+</div>
+                        <div class="text-sm text-bmw-gray-600 mt-1">Years Experience</div>
+                    </div>
+                    <div class="card-premium p-6 text-center">
+                        <div class="text-3xl font-bold text-bmw-blue-600">1000+</div>
+                        <div class="text-sm text-bmw-gray-600 mt-1">HP Builds</div>
+                    </div>
+                    <div class="card-premium p-6 text-center">
+                        <div class="text-3xl font-bold text-bmw-blue-600">5★</div>
+                        <div class="text-sm text-bmw-gray-600 mt-1">Google Rating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Owner's Credibility Section -->
+    <section class="py-24 bg-bmw-gray-900 relative overflow-hidden">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-performance-red/20 text-white border border-white/30 mb-6">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                    Owner's Personal Fleet
+                </div>
+                <h2 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+                    We Don't Just Work On Them
+                    <span class="block text-3xl md:text-4xl mt-2 text-bmw-gray-400">We Build & Race Them</span>
+                </h2>
+                <p class="text-xl text-bmw-gray-300 max-w-3xl mx-auto">
+                    Our owner's personal collection includes twin-turbo Lamborghinis pushing over 1000HP. 
+                    This isn't just a business—it's a lifestyle.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Vehicle Cards -->
+                <div class="card-premium bg-bmw-gray-800 border-bmw-gray-700 p-8">
+                    <div class="aspect-video bg-gradient-to-br from-bmw-gray-700 to-bmw-gray-800 rounded-xl mb-6 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-performance-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Twin Turbo Huracán</h3>
+                    <p class="text-performance-red font-semibold mb-4">1000+ HP Daily Driver</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-bmw-gray-400">
+                            <svg class="w-4 h-4 mr-2 text-performance-green" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-sm">Underground Racing Stage 3</span>
+                        </div>
+                        <div class="flex items-center text-bmw-gray-400">
+                            <svg class="w-4 h-4 mr-2 text-performance-green" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-sm">Full Carbon Aero Package</span>
+                        </div>
+                        <div class="flex items-center text-bmw-gray-400">
+                            <svg class="w-4 h-4 mr-2 text-performance-green" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-sm">Custom ECU Calibration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-premium bg-bmw-gray-800 border-bmw-gray-700 p-8">
+                    <div class="aspect-video bg-gradient-to-br from-bmw-gray-700 to-bmw-gray-800 rounded-xl mb-6 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-performance-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Twin Turbo Gallardo</h3>
+                    <p class="text-performance-orange font-semibold mb-4">Track Weapon</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-bmw-gray-400">
+                            <svg class="w-4 h-4 mr-2 text-performance-green" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-sm">Heffner Performance Build</span>
+                        </div>
+                        <div class="flex items-center text-bmw-gray-400">
+                            <svg class="w-4 h-4 mr-2 text-performance-green" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-sm">Roll Cage & Safety Equipment</span>
+                        </div>
+                        <div class="flex items-center text-bmw-gray-400">
+                            <svg class="w-4 h-4 mr-2 text-performance-green" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-sm">Sequential Transmission</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-premium bg-bmw-gray-800 border-bmw-gray-700 p-8">
+                    <div class="aspect-video bg-gradient-to-br from-bmw-gray-700 to-bmw-gray-800 rounded-xl mb-6 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-bmw-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Bentley Continental GT</h3>
+                    <p class="text-bmw-blue-400 font-semibold mb-4">Luxury Performance</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-bmw-gray-400">
+                            <svg class="w-4 h-4 mr-2 text-performance-green" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-sm">ECU & TCU Tuning</span>
+                        </div>
+                        <div class="flex items-center text-bmw-gray-400">
+                            <svg class="w-4 h-4 mr-2 text-performance-green" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-sm">Lowering Module</span>
+                        </div>
+                        <div class="flex items-center text-bmw-gray-400">
+                            <svg class="w-4 h-4 mr-2 text-performance-green" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-sm">Akrapovic Exhaust</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-gradient-to-r from-bmw-blue-600 to-bmw-blue-800 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6">
+                Ready to Experience Excellence?
+            </h2>
+            <p class="text-xl text-bmw-blue-100 mb-8 max-w-2xl mx-auto">
+                Join hundreds of satisfied BMW and exotic car owners who trust us with their prized vehicles.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-bmw-blue-700 px-6 py-3 rounded-lg font-medium hover:bg-bmw-gray-100 btn-premium min-w-[200px] flex items-center justify-center">
+                    Book Your Service
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                </button>
+                <button class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-bmw-blue-700 min-w-[200px] flex items-center justify-center">
+                    Get Free Quote
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
