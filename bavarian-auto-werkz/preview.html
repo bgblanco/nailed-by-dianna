@@ -167,7 +167,7 @@
                     </div>
                     <div class="flex flex-col">
                         <span class="text-xl font-bold text-bmw-gray-900">Bavarian Auto Werkz</span>
-                        <span class="text-xs text-bmw-gray-600 -mt-1">BMW • Performance • Exotic</span>
+                        <span class="text-xs text-bmw-gray-600 -mt-1 logo-tagline">BMW • Performance • Exotic</span>
                     </div>
                 </div>
 
@@ -180,9 +180,33 @@
                     <a href="#" class="px-3 py-2 rounded-lg text-sm font-medium text-bmw-gray-700 hover:text-bmw-blue-600 hover:bg-bmw-gray-50">Contact</a>
                 </div>
 
+                <!-- Mobile menu toggle -->
+                <button class="md:hidden mobile-menu-toggle p-2 rounded-lg" aria-label="Toggle mobile menu">
+                    <span class="hamburger-line block w-6 h-0.5 bg-bmw-gray-700 mb-1"></span>
+                    <span class="hamburger-line block w-6 h-0.5 bg-bmw-gray-700 mb-1"></span>
+                    <span class="hamburger-line block w-6 h-0.5 bg-bmw-gray-700"></span>
+                </button>
+
                 <!-- CTA Button -->
                 <div class="hidden md:flex items-center space-x-4">
                     <button class="bg-bmw-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-bmw-blue-700 btn-premium flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        Book Service
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div class="nav-menu md:hidden hidden bg-white border-t border-bmw-gray-200">
+                <div class="px-4 py-4 space-y-2">
+                    <a href="#" class="block px-3 py-2 rounded-lg text-sm font-medium text-bmw-blue-600 bg-bmw-blue-50 nav-link">Home</a>
+                    <a href="#" class="block px-3 py-2 rounded-lg text-sm font-medium text-bmw-gray-700 hover:text-bmw-blue-600 hover:bg-bmw-gray-50 nav-link">Services</a>
+                    <a href="#" class="block px-3 py-2 rounded-lg text-sm font-medium text-bmw-gray-700 hover:text-bmw-blue-600 hover:bg-bmw-gray-50 nav-link">Gallery</a>
+                    <a href="#" class="block px-3 py-2 rounded-lg text-sm font-medium text-bmw-gray-700 hover:text-bmw-blue-600 hover:bg-bmw-gray-50 nav-link">About</a>
+                    <a href="#" class="block px-3 py-2 rounded-lg text-sm font-medium text-bmw-gray-700 hover:text-bmw-blue-600 hover:bg-bmw-gray-50 nav-link">Contact</a>
+                    <button class="w-full mt-4 bg-bmw-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-bmw-blue-700 btn-premium flex items-center justify-center">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                         </svg>
@@ -410,5 +434,38 @@
             </div>
         </div>
     </section>
+
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenuToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                navMenu.classList.toggle('hidden');
+            });
+            
+            // Close menu when clicking on nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    navMenu.classList.add('hidden');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mobileMenuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                    mobileMenuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    navMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

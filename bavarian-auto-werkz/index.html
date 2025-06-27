@@ -19,9 +19,15 @@
                 <img src="logo.png" alt="Bavarian Auto Werkz Logo">
                 <div class="logo-text">
                     <h1>BAVARIAN AUTO WERKZ</h1>
-                    <p>BMW • European • Performance</p>
+                    <p class="logo-tagline">BMW • European • Performance</p>
                 </div>
             </a>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
             
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link active">Home</a></li>
@@ -67,6 +73,13 @@
         </div>
     </section>
 
+    <!-- BMW Collection Showcase -->
+    <section class="bmw-showcase">
+        <div class="container">
+            <img src="bmw-collection.png" alt="Collection of luxury BMW vehicles at Bavarian Auto Werkz" class="showcase-image">
+        </div>
+    </section>
+
     <!-- Trust Indicators -->
     <section class="section">
         <div class="container">
@@ -104,60 +117,48 @@
             
             <div class="grid">
                 <div class="card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                    <div class="card-image">
+                        <img src="workshop-interior.png" alt="Professional BMW workshop with luxury vehicles" class="feature-image">
                     </div>
                     <h3>BMW Certified Expertise</h3>
                     <p>Our technicians are factory-trained and certified, ensuring your BMW receives the exact care it was designed for using genuine parts and proven procedures.</p>
                 </div>
                 
                 <div class="card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                        </svg>
+                    <div class="card-image">
+                        <img src="family-business.png" alt="Professional BMW workshop showing family business values" class="feature-image">
                     </div>
                     <h3>Family Values</h3>
                     <p>We treat every customer like family and every BMW like our own. Our relationships are built on trust, transparency, and genuine care for you and your vehicle.</p>
                 </div>
                 
                 <div class="card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
-                        </svg>
+                    <div class="card-image">
+                        <img src="personal-service.png" alt="Professional BMW technicians consulting on diagnostic results with customer" class="feature-image">
                     </div>
                     <h3>Personal Service</h3>
                     <p>No corporate service centers here. You'll work directly with experienced professionals who know your name, your car, and your service history.</p>
                 </div>
                 
                 <div class="card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                    <div class="card-image">
+                        <img src="honest-communication.png" alt="Senior BMW technician explaining diagnostic details and transparent communication" class="feature-image">
                     </div>
                     <h3>Honest Communication</h3>
                     <p>We believe in transparent communication. We'll explain exactly what your BMW needs, why it needs it, and give you options that fit your budget and timeline.</p>
                 </div>
                 
                 <div class="card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                    <div class="card-image">
+                        <img src="convenient-service.png" alt="Efficient BMW service facility showing organized workflow and same-day service capability" class="feature-image">
                     </div>
                     <h3>Convenient Service</h3>
                     <p>We respect your time. Most services are completed the same day, and we'll keep you informed throughout the process so you can plan your day accordingly.</p>
                 </div>
                 
                 <div class="card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                        </svg>
+                    <div class="card-image">
+                        <img src="performance-dyno.png" alt="BMW M4 on dyno machine for performance tuning" class="feature-image">
                     </div>
                     <h3>Performance Focus</h3>
                     <p>From routine maintenance to performance upgrades, we understand what makes BMWs special and how to keep them performing at their absolute best.</p>
@@ -179,18 +180,27 @@
             
             <div class="grid">
                 <div class="card">
+                    <div class="card-image">
+                        <img src="maintenance-service.png" alt="BMW vehicles on lifts receiving comprehensive maintenance service" class="feature-image">
+                    </div>
                     <h3>Maintenance & Service</h3>
                     <p>Keep your BMW running smoothly with our comprehensive maintenance services. We follow BMW's exact specifications and use only genuine or BMW-approved parts.</p>
                     <a href="services.html" class="btn btn-primary mt-2">Learn More</a>
                 </div>
                 
                 <div class="card">
+                    <div class="card-image">
+                        <img src="performance-tuning.png" alt="BMW M-series engine bay with performance modifications and M badge" class="feature-image">
+                    </div>
                     <h3>Performance Tuning</h3>
                     <p>Unlock your BMW's true potential with professional performance modifications and tuning. We understand these engines inside and out.</p>
                     <a href="services.html" class="btn btn-primary mt-2">Learn More</a>
                 </div>
                 
                 <div class="card">
+                    <div class="card-image">
+                        <img src="european-luxury.png" alt="Mercedes AMG and luxury European vehicles in professional service facility" class="feature-image">
+                    </div>
                     <h3>European Luxury Cars</h3>
                     <p>We also specialize in other European luxury and performance vehicles. Your Audi, Mercedes, or Porsche gets the same expert care.</p>
                     <a href="services.html" class="btn btn-primary mt-2">Learn More</a>
@@ -211,16 +221,25 @@
             
             <div class="grid">
                 <div class="card">
+                    <div class="card-image">
+                        <img src="x5-customer-satisfaction.png" alt="Happy BMW X5 owner receiving keys back after successful service" class="feature-image">
+                    </div>
                     <p>"Finally found a shop that understands BMWs. They explained everything clearly, finished on time, and my X5 has never run better. These guys genuinely care about doing things right."</p>
                     <h4>— Sarah M., BMW X5 Owner</h4>
                 </div>
                 
                 <div class="card">
+                    <div class="card-image">
+                        <img src="customer-loyalty.png" alt="Long-term BMW customer reviewing service history with trusted technicians" class="feature-image">
+                    </div>
                     <p>"Been taking my 335i here for three years. They're honest, fair, and really know these cars. It's like having a BMW dealer without the dealer prices and attitude."</p>
                     <h4>— Mike R., BMW 335i Owner</h4>
                 </div>
                 
                 <div class="card">
+                    <div class="card-image">
+                        <img src="m3-customer-satisfaction.png" alt="BMW M3 owner reviewing completed specialized work with shop owner" class="feature-image">
+                    </div>
                     <p>"My M3 needed some specialized work and they handled it perfectly. The owner actually came out to talk with me about the car—you don't get that kind of personal service anymore."</p>
                     <h4>— David L., BMW M3 Owner</h4>
                 </div>
@@ -242,7 +261,7 @@
                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                     </svg>
-                    Call (555) 123-4567
+                    Call (559) 570-4201
                 </a>
                 <a href="contact.html" class="btn btn-secondary">
                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
@@ -272,9 +291,9 @@
             
             <div class="footer-section">
                 <h3>Contact Info</h3>
-                <p>123 Main Street<br>Your City, ST 12345</p>
-                <p>Phone: (555) 123-4567</p>
-                <p>Email: info@bavarianautoweekz.com</p>
+                <p>3940 E Dwight Ave<br>Fresno, CA</p>
+                <p>Phone: (559) 570-4201</p>
+                <p>Email: bavarian.autowerkz@gmail.com</p>
             </div>
             
             <div class="footer-section">
@@ -289,5 +308,35 @@
             <p>&copy; 2024 Bavarian Auto Werkz. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenuToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mobileMenuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                    mobileMenuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
