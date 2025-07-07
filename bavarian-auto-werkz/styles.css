@@ -193,8 +193,11 @@ p {
 
 .btn-primary:hover {
     background: var(--bmw-blue-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+    transform: translate3d(0, -2px, 0);
+    box-shadow: 
+        0 4px 12px rgba(0, 102, 204, 0.3),
+        0 0 12px rgba(0, 102, 204, 0.2);
+    will-change: transform;
 }
 
 .btn-secondary {
@@ -204,9 +207,12 @@ p {
 }
 
 .btn-secondary:hover {
+    background: rgba(0, 102, 204, 0.05);
     border-color: var(--bmw-blue);
     color: var(--bmw-blue);
-    transform: translateY(-2px);
+    transform: translate3d(0, -2px, 0);
+    box-shadow: 0 0 8px rgba(0, 102, 204, 0.2);
+    will-change: transform;
 }
 
 /* Hero sections */
@@ -365,13 +371,25 @@ p {
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translate3d(0, -4px, 0);
+    background: linear-gradient(135deg, var(--card-background), rgba(28, 28, 28, 0.95));
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.15),
+        0 0 15px rgba(0, 102, 204, 0.2);
     border-color: var(--bmw-blue);
+    will-change: transform, box-shadow;
 }
 
 .card:hover::before {
     transform: scaleX(1);
+    background: var(--bmw-blue);
+    box-shadow: 0 0 8px rgba(0, 102, 204, 0.4);
+}
+
+.card:hover h3,
+.card:hover p {
+    color: rgba(255, 255, 255, 0.95);
+    transition: color 0.3s ease;
 }
 
 .card-icon {
@@ -480,8 +498,13 @@ p {
 }
 
 .section-dark .card:hover {
+    background: linear-gradient(135deg, var(--dark-gray), var(--carbon-medium));
     border-color: var(--bmw-blue);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(0, 102, 204, 0.3);
+    transform: translate3d(0, -4px, 0);
+    will-change: transform, box-shadow;
 }
 
 
@@ -554,6 +577,29 @@ p {
 
 .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Disable hover effects on touch devices for performance */
+@media (hover: none) {
+    .card:hover,
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .section-dark .card:hover {
+        transform: none;
+        background: inherit;
+        box-shadow: inherit;
+        border-color: inherit;
+    }
+    
+    .card:hover::before {
+        transform: scaleX(0);
+        box-shadow: none;
+    }
+    
+    .card:hover h3,
+    .card:hover p {
+        color: inherit;
+    }
 }
 
 /* Mobile responsiveness */
