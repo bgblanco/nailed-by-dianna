@@ -1,0 +1,448 @@
+/* Mobile-Specific Optimizations for Nailed by Dianna */
+
+/* Touch Target Improvements */
+@media (max-width: 768px) {
+    /* Ensure all touch targets are at least 44px */
+    .btn-primary, .btn-secondary, .nav-link, .social-link, .time-slot, .calendar-day {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Improve button spacing on mobile */
+    .hero-buttons {
+        gap: 1.5rem;
+    }
+
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+        padding: 16px 24px;
+    }
+
+    /* Mobile-specific hero adjustments */
+    .hero {
+        padding: 100px 20px 60px;
+        min-height: 90vh;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.1;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+    }
+
+    /* Service cards mobile optimization */
+    .service-card {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .service-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .service-details {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    /* Gallery mobile improvements */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .gallery-item {
+        aspect-ratio: 1;
+    }
+
+    /* Mobile form improvements */
+    .booking-form {
+        gap: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 16px;
+        font-size: 16px; /* Prevents zoom on iOS */
+        border-radius: 12px;
+    }
+
+    .form-group label {
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+    }
+
+    /* Calendar mobile optimizations */
+    .calendar-day {
+        font-size: 0.85rem;
+        min-height: 40px;
+    }
+
+    .time-slots {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .time-slot {
+        padding: 12px 8px;
+        font-size: 0.9rem;
+    }
+
+    /* Contact section mobile */
+    .contact-item {
+        padding: 1.25rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+
+    .contact-item i {
+        font-size: 2rem;
+        margin-top: 0;
+    }
+
+    /* Footer mobile */
+    .footer-content {
+        gap: 2.5rem;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    /* Sticky button mobile */
+    .sticky-book-btn {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .sticky-book-btn .btn-primary {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+        box-shadow: 0 4px 20px rgba(233, 30, 99, 0.4);
+    }
+
+    /* Calendar mobile optimization */
+    .calendar-container {
+        margin: 0 -1rem;
+        border-radius: 10px;
+    }
+
+    .calendar-container iframe {
+        min-height: 350px;
+    }
+
+    /* Contact form mobile optimization */
+    .contact-form-container {
+        margin: 0 -1rem;
+        border-radius: 10px;
+        height: 500px;
+        min-height: 500px;
+    }
+
+    .contact-form-container iframe {
+        height: 500px;
+    }
+}
+
+/* Mobile-only optimizations */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .services, .gallery, .about, .booking, .contact {
+        padding: 60px 0;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-features {
+        gap: 0.75rem;
+    }
+
+    .feature {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .hours-grid {
+        font-size: 0.9rem;
+    }
+
+    .hour-item {
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+/* Landscape orientation mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: 70vh;
+        padding: 80px 20px 40px;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary {
+        width: auto;
+        max-width: none;
+    }
+}
+
+/* Progressive Web App optimizations */
+@media (display-mode: standalone) {
+    .navbar {
+        padding-top: env(safe-area-inset-top, 1rem);
+    }
+
+    .hero {
+        padding-top: calc(120px + env(safe-area-inset-top, 0px));
+    }
+
+    .sticky-book-btn {
+        bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+/* High DPI / Retina displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .service-icon,
+    .hero-image .image-placeholder i,
+    .about-image .image-placeholder i {
+        transform: translateZ(0); /* Hardware acceleration */
+    }
+}
+
+/* Focus improvements for accessibility */
+@media (max-width: 768px) {
+    .nav-link:focus,
+    .btn-primary:focus,
+    .btn-secondary:focus,
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus,
+    .time-slot:focus,
+    .calendar-day:focus {
+        outline: 3px solid var(--primary-pink);
+        outline-offset: 2px;
+    }
+
+    /* Remove outline for mouse users */
+    .nav-link:focus:not(:focus-visible),
+    .btn-primary:focus:not(:focus-visible),
+    .btn-secondary:focus:not(:focus-visible),
+    .form-group input:focus:not(:focus-visible),
+    .form-group select:focus:not(:focus-visible),
+    .form-group textarea:focus:not(:focus-visible),
+    .time-slot:focus:not(:focus-visible),
+    .calendar-day:focus:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+/* Loading states for mobile */
+@media (max-width: 768px) {
+    .loading {
+        position: relative;
+    }
+
+    .loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 16px;
+        height: 16px;
+        margin: -8px 0 0 -8px;
+        border: 2px solid var(--primary-pink);
+        border-top: 2px solid transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+}
+
+/* Mobile keyboard adjustments */
+@media (max-width: 768px) {
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        transform: scale(1.02);
+        transition: transform 0.2s ease;
+    }
+
+    /* Prevent zoom on input focus for iOS */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Swipe gestures indicator */
+@media (max-width: 768px) {
+    .gallery-grid::before {
+        content: '← Swipe to browse →';
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.8rem;
+        color: var(--medium-gray);
+        opacity: 0.7;
+        pointer-events: none;
+    }
+
+    .gallery {
+        position: relative;
+    }
+}
+
+/* Mobile navigation improvements */
+@media (max-width: 767px) {
+    .nav-menu.active {
+        animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .nav-link {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(233, 30, 99, 0.1);
+    }
+
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Notification improvements for mobile */
+@media (max-width: 768px) {
+    .notification {
+        left: 20px !important;
+        right: 20px !important;
+        top: 80px !important;
+        transform: translateY(-100px) !important;
+        max-width: none !important;
+    }
+
+    .notification.show {
+        transform: translateY(0) !important;
+    }
+}
+
+/* Performance optimizations */
+@media (max-width: 768px) {
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .hero,
+    .services,
+    .gallery,
+    .about,
+    .booking,
+    .contact {
+        will-change: transform;
+    }
+
+    .service-card,
+    .gallery-item,
+    .contact-item {
+        backface-visibility: hidden;
+        transform: translateZ(0);
+    }
+}
+
+/* Dark mode support for mobile */
+@media (max-width: 768px) and (prefers-color-scheme: dark) {
+    .navbar {
+        background: rgba(33, 33, 33, 0.95);
+    }
+
+    .nav-menu.active {
+        background: rgba(33, 33, 33, 0.98);
+    }
+
+    .nav-link {
+        color: #E0E0E0;
+    }
+
+    .nav-logo h2 {
+        color: var(--accent-pink);
+    }
+}
+
+/* Reduced motion support */
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary,
+    .service-card,
+    .gallery-item,
+    .contact-item {
+        transition: none;
+    }
+
+    .fade-in-up {
+        animation: none;
+    }
+
+    .calendar-day,
+    .time-slot {
+        transition: background-color 0.1s ease;
+    }
+}
