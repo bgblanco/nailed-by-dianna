@@ -716,6 +716,62 @@ a {
     transform: translateY(-2px);
 }
 
+/* Instagram showcase styling for the new "See My Latest Work" section */
+.portfolio-description {
+    color: var(--medium-gray);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.instagram-showcase {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.instagram-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    color: var(--white);
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(131, 58, 180, 0.3);
+}
+
+.instagram-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(131, 58, 180, 0.4);
+    color: var(--white);
+}
+
+.instagram-link i {
+    font-size: 1.25rem;
+    color: var(--white);
+}
+
+.instagram-handle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--white);
+}
+
+/* Special styling for the "See My Latest Work" contact item */
+.contact-item:has(.instagram-showcase) {
+    background: linear-gradient(135deg, var(--soft-pink), rgba(252, 228, 236, 0.7));
+    border: 1px solid rgba(233, 30, 99, 0.1);
+}
+
+.contact-item:has(.instagram-showcase) h3 {
+    color: var(--primary-pink);
+    font-weight: 600;
+}
+
 /* Footer */
 .footer {
     background: var(--text-dark);
