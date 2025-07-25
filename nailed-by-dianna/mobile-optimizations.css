@@ -120,6 +120,29 @@
         margin-top: 0;
     }
 
+    /* Instagram showcase mobile optimization */
+    .instagram-showcase {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .instagram-link {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 30px;
+        min-height: 44px; /* Touch target optimization */
+    }
+
+    .instagram-link i {
+        font-size: 1.5rem;
+    }
+
+    .portfolio-description {
+        text-align: center;
+        font-size: 0.9rem;
+        margin-bottom: 1.25rem;
+    }
+
     /* Footer mobile */
     .footer-content {
         gap: 2.5rem;
