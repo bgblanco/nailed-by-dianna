@@ -534,6 +534,20 @@ a {
     min-height: 400px;
 }
 
+.contact-form-container {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    min-height: 592px;
+    height: 592px;
+}
+
+.contact-form-container iframe {
+    display: block;
+    height: 592px;
+}
+
 .booking-divider {
     text-align: center;
     position: relative;

@@ -150,6 +150,18 @@
     .calendar-container iframe {
         min-height: 350px;
     }
+
+    /* Contact form mobile optimization */
+    .contact-form-container {
+        margin: 0 -1rem;
+        border-radius: 10px;
+        height: 500px;
+        min-height: 500px;
+    }
+
+    .contact-form-container iframe {
+        height: 500px;
+    }
 }
 
 /* Mobile-only optimizations */
