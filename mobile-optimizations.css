@@ -178,12 +178,14 @@
     .contact-form-container {
         margin: 0 -1rem;
         border-radius: 10px;
-        height: 500px;
-        min-height: 500px;
+        min-height: 592px;
+        height: auto;
+        padding-bottom: 20px;
     }
 
     .contact-form-container iframe {
-        height: 500px;
+        height: 592px;
+        min-height: 592px;
     }
 }
 

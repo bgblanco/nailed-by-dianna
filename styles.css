@@ -548,6 +548,25 @@ a {
     height: 592px;
 }
 
+.widget-attribution {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--medium-gray);
+    margin-top: 10px;
+    padding: 5px 0;
+}
+
+.widget-attribution a {
+    color: var(--primary-pink);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.widget-attribution a:hover {
+    color: var(--dark-pink);
+    text-decoration: underline;
+}
+
 .booking-divider {
     text-align: center;
     position: relative;
