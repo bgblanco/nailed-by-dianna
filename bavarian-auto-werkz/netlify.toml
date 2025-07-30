@@ -1,5 +1,0 @@
-[build]
-  # No build command needed for static HTML
-  command = ""
-  # Publish from root directory where index.html is located
-  publish = "."
