@@ -11,18 +11,18 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
         
-        // Animate hamburger bars
+        // Animate hamburger bars with Tailwind classes
         const bars = hamburger.querySelectorAll('.bar');
-        bars.forEach((bar, index) => {
-            if (hamburger.classList.contains('active')) {
-                if (index === 0) bar.style.transform = 'rotate(-45deg) translate(-5px, 6px)';
-                if (index === 1) bar.style.opacity = '0';
-                if (index === 2) bar.style.transform = 'rotate(45deg) translate(-5px, -6px)';
-            } else {
+        if (hamburger.classList.contains('active')) {
+            bars[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+            bars[1].style.opacity = '0';
+            bars[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
+        } else {
+            bars.forEach(bar => {
                 bar.style.transform = '';
                 bar.style.opacity = '1';
-            }
-        });
+            });
+        }
     });
 
     // Close mobile menu when clicking on a link
@@ -53,15 +53,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Navbar Background on Scroll
+    // Navbar Background on Scroll - Improved with Tailwind
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            navbar.classList.remove('bg-white/95');
+            navbar.classList.add('bg-white', 'shadow-md');
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            navbar.classList.remove('bg-white', 'shadow-md');
+            navbar.classList.add('bg-white/95', 'shadow-sm');
         }
     });
 
@@ -384,39 +384,55 @@ document.addEventListener('DOMContentLoaded', function() {
         dateInput.setAttribute('min', today);
     }
 
-    // Add CSS for mobile navigation
+    // Add mobile navigation styles with Tailwind
     const style = document.createElement('style');
     style.textContent = `
         @media (max-width: 767px) {
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 70px;
+                top: 64px;
                 flex-direction: column;
                 background-color: rgba(255, 255, 255, 0.98);
                 width: 100%;
                 text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                transition: left 0.3s ease;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
                 backdrop-filter: blur(10px);
                 padding: 2rem 0;
                 gap: 1rem;
+                display: flex !important;
+                z-index: 1000;
             }
 
             .nav-menu.active {
                 left: 0;
             }
 
-            .nav-link {
-                padding: 0.5rem;
+            .nav-menu .nav-link {
+                padding: 0.75rem 2rem;
                 display: block;
                 border-radius: 8px;
-                margin: 0 2rem;
+                margin: 0 1rem;
                 transition: all 0.3s ease;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
-            .nav-link:hover {
-                background-color: var(--soft-pink);
+            .nav-menu .nav-link:not([class*="bg-gradient"]):hover {
+                background-color: #fce7f3;
+            }
+            
+            /* Better mobile touch targets */
+            .hamburger {
+                padding: 8px;
+                min-height: 44px;
+                min-width: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         }
     `;
